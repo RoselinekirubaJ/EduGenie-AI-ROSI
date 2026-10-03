@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EduGenie - AI Learning Assistant</title>
+  <link rel="stylesheet" href="{{ url_for('static', path='style.css') }}">
+</head>
+<body>
+  <main class="container">
+    <section class="hero">
+      <p class="eyebrow">GENERATIVE AI LEARNING ASSISTANT</p>
+      <h1>EduGenie</h1>
+      <p>Ask questions, simplify concepts, create quizzes, summarize notes, and build learning paths.</p>
+    </section>
+
+    <section class="card">
+      <label for="task">Choose a task</label>
+      <select id="task">
+        <option value="qa">Ask a Question</option>
+        <option value="explain">Explain a Concept</option>
+        <option value="quiz">Generate Quiz</option>
+        <option value="summarize">Summarize Text</option>
+        <option value="learn">Recommend Learning Path</option>
+      </select>
+
+      <label for="level" id="levelLabel">Learner level</label>
+      <select id="level">
+        <option>beginner</option>
+        <option>intermediate</option>
+        <option>advanced</option>
+      </select>
+
+      <label for="inputText">Your input</label>
+      <textarea id="inputText" rows="10" placeholder="Type your question, topic, or passage here..."></textarea>
+
+      <div class="actions">
+        <label class="question-count">
+          Quiz questions
+          <input id="numQuestions" type="number" min="1" max="10" value="3">
+        </label>
+        <button id="submitBtn">Generate Result</button>
+      </div>
+
+      <div id="status" class="status"></div>
+      <article id="result" class="result" aria-live="polite"></article>
+    </section>
+  </main>
+  <script src="{{ url_for('static', path='app.js') }}"></script>
+</body>
+</html>
